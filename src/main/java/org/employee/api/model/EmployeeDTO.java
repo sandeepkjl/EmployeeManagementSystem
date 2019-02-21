@@ -1,27 +1,36 @@
 package org.employee.api.model;
 
 
+import org.employee.api.entity.SkillEntity;
+
+import javax.validation.constraints.Size;
+import java.util.List;
+
 public class EmployeeDTO
 {
+
 
     private String empId;
     private String empName;
     private Long  salary;
     private String designation;
-    private Department  dept;
+    private String  deptId;
+    private List<SkillEntity> skills;
 
 
     public EmployeeDTO() {
         super();
     }
 
-    public EmployeeDTO(String empId, String empName, Long salary, String designation, Department dept) {
+    public EmployeeDTO(String empId, String empName, Long salary, String designation, String deptId, List<SkillEntity> skills) {
         this.empId = empId;
         this.empName = empName;
         this.salary = salary;
         this.designation = designation;
-        this.dept = dept;
+        this.deptId = deptId;
+        this.skills = skills;
     }
+
 
     public String getEmpId() {
         return empId;
@@ -55,13 +64,23 @@ public class EmployeeDTO
         this.designation = designation;
     }
 
-    public Department getDept() {
-        return dept;
+
+    public String getDeptId() {
+        return deptId;
     }
 
-    public void setDept(Department dept) {
-        this.dept = dept;
+    public void setDeptId(String deptId) {
+        this.deptId = deptId;
     }
+
+    public List<SkillEntity> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<SkillEntity> skills) {
+        this.skills = skills;
+    }
+
 
     @Override
     public String toString() {
@@ -70,7 +89,8 @@ public class EmployeeDTO
                 ", empName='" + empName + '\'' +
                 ", salary=" + salary +
                 ", designation='" + designation + '\'' +
-                ", dept=" + dept +
+                ", deptId='" + deptId + '\'' +
+                ", skills=" + skills +
                 '}';
     }
 }

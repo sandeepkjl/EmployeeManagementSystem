@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends CrudRepository<EmployeeEntity,String> {
 
-    public EmployeeEntity findByEmpId(String id);
+    @Override
+    EmployeeEntity findOne(String s);
+
+    public EmployeeEntity save(EmployeeEntity employeeEntity);
 
 }
